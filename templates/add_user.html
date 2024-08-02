@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User - Virtual Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="profile">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="User Profile">
+                <span class="username">{{ username }}</span>
+                <button class="dropbtn" onclick="toggleDropdown()">▼</button>
+                <div class="dropdown" id="profileDropdown">
+                    <a href="{{ url_for('add_user_page') }}">Add User</a>
+                    <form action="{{ url_for('delete_user') }}" method="post" class="delete-form">
+                        <input type="hidden" name="connectionID" value="{{ request.args.get('username') }}">
+                        <button type="submit" class="delete-btn">Delete Account</button>
+                    </form>
+                </div>
+            </div>
+            <nav class="app-nav">
+                <a href="{{ url_for('settings') }}" id="settings"><img
+                        src="{{ url_for('static', filename='images/settings.png') }}" alt="Settings"
+                        class="nav-icon"></a>
+                <a href="{{ url_for('login') }}" id="logout"><img
+                        src="{{ url_for('static', filename='images/logout.png') }}" alt="Logout" class="nav-icon"></a>
+            </nav>
+        </header>
+        <main class="app-main">
+            <div class="settings-content">
+                <div class="settings-logo">
+                    <img src="{{ url_for('static', filename='images/add_user_icon.png') }}" alt="Email Icon">
+                </div>
+                <div class="settings-form">
+                    <form action="{{ url_for('add_user') }}" method="post">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                        <button type="submit">Add User</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        // Toggle dropdown visibility
+        function toggleDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Close dropdown if clicked outside
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                const dropdowns = document.getElementsByClassName('dropdown');
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

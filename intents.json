@@ -1,0 +1,393 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hello",
+        "hi",
+        "how is it going",
+        "whats up"
+      ],
+      "responses": [
+        "greet, greeting"
+      ]
+    },
+    {
+      "tag": "how are you",
+      "patterns": [
+        "How are you",
+        "How are you doing today",
+        "How is your day?"
+      ],
+      "responses": [
+        "greet, ask how are you"
+      ]
+    },
+    {
+      "tag": "name",
+      "patterns": [
+        "what is your name",
+        "your name?",
+        "what your name",
+        "what should i call you",
+        "what i call you",
+        "what can i call you"
+      ],
+      "responses": [
+        "name asking, about"
+      ]
+    },
+    {
+      "tag": "Volume",
+      "patterns": [
+        "Volume up",
+        "Volume down",
+        "Volume low",
+        "volume high",
+        "volume full",
+        "mute"
+      ],
+      "responses": [
+        "machine use, Volume"
+      ]
+    },
+    {
+      "tag": "machineWork",
+      "patterns": [
+        "shutdown",
+        "shutdown the pc",
+        "shutdown this pc",
+        "shutdown this computer",
+        "restart",
+        "restart the pc",
+        "restart this pc",
+        "restart this computer",
+        "lock",
+        "lock the pc",
+        "lock this pc",
+        "lock this computer"
+      ],
+      "responses": [
+        "Machine work"
+      ]
+    },
+    {
+      "tag": "search",
+      "patterns": [
+        "what is",
+        "can you tell me what is",
+        "can you tell me about",
+        "tell about",
+        "tell me about",
+        "find me about",
+        "tell something about",
+        "tell something related to",
+        "find me hotel",
+        "find me a restaurant",
+        "find for me a bar",
+        "search a bar for me",
+        "search a hotel for us"
+      ],
+      "responses": [
+        "work bot, search"
+      ]
+    },
+    {
+      "tag": "toDo",
+      "patterns": [
+        "What is in the list",
+        "add to the list",
+        "add to do",
+        "to do",
+        "todo",
+        "2do",
+        "show me the todo list",
+        "what is in todo",
+        "remove from the todo",
+        "remove todo"
+      ],
+      "responses": [
+        "todo"
+      ]
+    },
+    {
+      "tag": "runApps",
+      "patterns": [
+        "Run chrome",
+        "run app",
+        "open chrome",
+        "open app",
+        "open",
+        "run",
+        "run this",
+        "open this",
+        "open for me",
+        "run for me"
+      ],
+      "responses": [
+        "work bot, Run apps"
+      ]
+    },
+    {
+      "tag": "switchWindows",
+      "patterns": [
+        "switch to",
+        "switch window",
+        "switch from switch to"
+      ],
+      "responses": [
+        "machine use, switch windows"
+      ]
+    },
+    {
+      "tag": "calculate",
+      "patterns": [
+        "1 + 2",
+        "1*2",
+        "1/2",
+        "1^2",
+        "1+2*3/4"
+      ],
+      "responses": [
+        "work bot, calculate"
+      ]
+    },
+    {
+      "tag": "bye",
+      "patterns": [
+        "ok",
+        "ok bye",
+        "bye",
+        "goodbye",
+        "see you",
+        "c ya",
+        "see you",
+        "bye bye",
+        "b bye",
+        "go to sleep",
+        "sleep now",
+        "thank you bye"
+      ],
+      "responses": [
+        "greet, bye"
+      ]
+    },
+    {
+      "tag": "Time",
+      "patterns": [
+        "what is time",
+        "what is the time",
+        "what is the time in",
+        "what is the time here",
+        "how much time is it",
+        "It is how much time"
+      ],
+      "responses": [
+        "tell, Time"
+      ]
+    },
+    {
+      "tag": "joke",
+      "patterns": [
+        "tell a joke",
+        "tell me a joke",
+        "a joke please",
+        "joke please"
+      ],
+      "responses": [
+        "tell, joke"
+      ]
+    },
+    {
+      "tag": "brightness",
+      "patterns": [
+        "brightness up",
+        "brightness down",
+        "bright down",
+        "bright up",
+        "brighter",
+        "darker",
+        "brighten the screen",
+        "darken the screen",
+        "make screen dark",
+        "make screen bright"
+      ],
+      "responses": [
+        "machine use, brightness"
+      ]
+    },
+    {
+      "tag": "location",
+      "patterns": [
+        "where is",
+        "do you know where",
+        "do you know where is",
+        "is where",
+        "where"
+      ],
+      "responses": [
+        "work bot, location"
+      ]
+    },
+    {
+      "tag": "play",
+      "patterns": [
+        "play on youtube",
+        "play youtube",
+        "play",
+        "play song",
+        "song",
+        "youtube"
+      ],
+      "responses": [
+        "work bot, play"
+      ]
+    },
+    {
+      "tag": "battery",
+      "patterns": [
+        "what is the battery",
+        "what is battery level",
+        "battery level",
+        "what is battery now",
+        "tell the battery percent",
+        "tell battery percentage",
+        "is the lappy plugged in?",
+        "is laptop charging",
+        "is laptop plugged in",
+        "is laptop on battery"
+      ],
+      "responses": [
+        "machine use, battery"
+      ]
+    },
+    {
+      "tag": "language_made_in",
+      "patterns": [
+        "what is your language",
+        "what language were you programmed in",
+        "what language were you made",
+        "language you were created in",
+        "who created you"
+      ],
+      "responses": [
+        "about ,language"
+      ]
+    },
+    {
+      "tag": "owner",
+      "patterns": [
+        "who made you",
+        "who invented you",
+        "what made you",
+        "how created you",
+        "your inventor?",
+        "who is your inventor"
+      ],
+      "responses": [
+        "about, owner"
+      ]
+    },
+    {
+      "tag": "screenshot",
+      "patterns": [
+        "screenshot",
+        "take a screenshot for me",
+        "do me a screenshot",
+        "pluck a screenshot"
+      ],
+      "responses": [
+        "machine use, screenshot"
+      ]
+    },
+    {
+      "tag": "send email",
+      "patterns": [
+        "send an email to",
+        "give an email to",
+        "throw an email to",
+        "send mail"
+      ],
+      "responses": [
+        "work bot, send email"
+      ]
+    },
+    {
+      "tag": "retrieve news",
+      "patterns": [
+        "what is the news",
+        "tell me news",
+        "give some updates today",
+        "what is going on in the world",
+        "what are some headlines",
+        "what are some headlines today"
+      ],
+      "responses": [
+        "work bot, news"
+      ]
+    },
+    {
+      "patterns": [
+        "call me now",
+        "call me from now",
+        "say me this",
+        "i am this from now",
+        "you should call me this now",
+        "you should address me this now",
+        "address me as"
+      ],
+      "responses": [
+        "bot modify, keep owner name"
+      ],
+      "tag": "keep name"
+    },
+    {
+      "patterns": [
+        "what languages can you speak",
+        "can you speak english",
+        "in what languages can you talk",
+        "which languages do you know",
+        "you know which languages",
+        "can you speak multiple languages"
+      ],
+      "responses": [
+        "about, language ability"
+      ],
+      "tag": "languages you speak?"
+    },
+    {
+      "patterns": [
+        "where is this",
+        "show me on map",
+        "show me australia",
+        "india on globe",
+        "where is india",
+        "where is moga",
+        "where is punjab",
+        "this on globe",
+        "find me india on globe"
+      ],
+      "responses": [
+        "work bot, location"
+      ],
+      "tag": "location finding"
+    },
+    {
+      "patterns": [
+        "accept my commands in hindi",
+        "now i will speak hindi",
+        "now i will say in french",
+        "listen in japanese now",
+        "listen in spanish now",
+        "respond in french now",
+        "respond in hindi"
+      ],
+      "responses": [
+        "bot modify, language change"
+      ],
+      "tag": "change language"
+    }
+  ]
+}
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Virtual Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <nav class="app-nav">
+                <a href="{{ url_for('login') }}" id="login"><img src="{{ url_for('static', filename='images/login.png') }}" alt="Login" class="nav-icon"></a>
+            </nav>
+        </header>
+        <main class="app-main">
+            <div class="contact-us">
+                <h1>Contact Us</h1>
+                <div class="contact-details">
+                    <h2>Support</h2>
+                    <p>If you need any assistance, please contact us at the following numbers or emails based on your location:</p>
+                    
+                    <h3>United States</h3>
+                    <p>Phone: +1-800-123-4567</p>
+                    <p>Email: support.us@example.com</p>
+                    <p>Support Hours: 9 AM - 5 PM (PST)</p>
+
+                    <h3>Canada</h3>
+                    <p>Phone: +1-800-234-5678</p>
+                    <p>Email: support.ca@example.com</p>
+                    <p>Support Hours: 9 AM - 5 PM (EST)</p>
+
+                    <h3>United Kingdom</h3>
+                    <p>Phone: +44-800-123-4567</p>
+                    <p>Email: support.uk@example.com</p>
+                    <p>Support Hours: 9 AM - 5 PM (GMT)</p>
+
+                    <h3>Australia</h3>
+                    <p>Phone: +61-800-123-456</p>
+                    <p>Email: support.au@example.com</p>
+                    <p>Support Hours: 9 AM - 5 PM (AEST)</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

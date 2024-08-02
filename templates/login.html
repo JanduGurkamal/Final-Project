@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Virtual Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="flash-container">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+    <div class="app-container">
+        <main class="app-main">
+            <div class="login-form">
+                <div class="login-content">
+                    <div class="login-logo">
+                        <img src="{{ url_for('static', filename='images/company_logo.png') }}" alt="Company Logo">
+                    </div>
+                    <div class="divider"></div>
+                    <form action="{{ url_for('verify_user') }}" method="post">
+                        <label for="connectionID">Connection ID:</label>
+                        <input type="text" id="connectionID" name="connectionID" required>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                        <button type="submit">Login</button>
+                        <a href="{{ url_for('contact_us') }}" class="forgot-credentials">Forgot Credentials?</a>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        // Hide flash messages after 5 seconds
+        setTimeout(function () {
+            var flashMessages = document.querySelector('.flash-messages');
+            if (flashMessages) {
+                flashMessages.style.display = 'none';
+            }
+        }, 5000);
+    </script>
+</body>
+
+</html>

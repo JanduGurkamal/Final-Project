@@ -1,0 +1,411 @@
+/* Importing Roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url("/static/images/background.webp");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.app-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.66);
+    /* Slight transparency */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    /* Ensure the container is above other elements */
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.221);
+    z-index: 2;
+    /* Ensure header is above other elements */
+}
+
+.profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.profile img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.username {
+    font-size: 18px;
+    font-weight: 500;
+    padding-right: 10px;
+    color: #dddddd;
+}
+
+.app-nav {
+    display: flex;
+    align-items: center;
+}
+
+.app-nav a {
+    margin-left: 20px;
+    z-index: 3;
+    /* Ensure navigation links are above other elements */
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 4;
+    /* Ensure icons are clickable */
+}
+
+.app-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.desktop-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    color: #ffffffbe;
+}
+
+.time-widget,
+.weather-widget {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    padding: 30px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.weather-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.action-item {
+    display: flex;
+    align-items: center;
+}
+
+.divider {
+    width: 1px;
+    height: 50px;
+    background-color: #ffffffbe;
+}
+
+.action-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s;
+    color: #ffffffbe;
+}
+
+.action-button:hover {
+    transform: scale(1.05);
+}
+
+.action-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.actions span {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.settings-form,
+.login-form,
+.contact-us {
+    background-color: rgba(255, 255, 255, 0.85);
+    /* Slightly translucent background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.settings-form form,
+.login-form form,
+.contact-us {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-form label,
+.login-form label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333333;
+}
+
+.settings-form input,
+.login-form input {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.settings-form button,
+.login-form button {
+    padding: 10px 15px;
+    background-color: #333333;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.settings-form button:hover,
+.login-form button:hover {
+    background-color: #555555;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.login-logo img {
+    width: 100px;
+    height: 100px;
+}
+
+.divider {
+    width: 1px;
+    height: 100px;
+    background-color: #333333;
+    margin: 0 20px;
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.settings-logo img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.settings-form .divider {
+    width: 80%;
+    height: 1px;
+    background-color: #333333;
+    margin: 20px 0;
+}
+
+.dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    display: none;
+    background-color: rgba(241, 241, 241, 0.9);
+    /* Slightly translucent */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+    border-radius: 8px;
+    overflow: hidden;
+    right: 0;
+    text-align: center;
+}
+
+.dropdown a,
+.delete-form {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.dropdown a:hover,
+.delete-form:hover {
+    background-color: #ddd;
+}
+
+.delete-form {
+    width: 100%;
+    text-align: center;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: black;
+    width: 100%;
+    padding: 12px 16px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.flash-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+}
+
+.flash-messages {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.flash-message {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.flash-message.success {
+    background-color: #4caf50;
+    color: white;
+}
+
+.flash-message.error {
+    background-color: #f44336;
+    color: white;
+}
+
+.forgot-credentials {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333333;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+}
+
+.forgot-credentials:hover {
+    text-decoration: underline;
+}
+
+.contact-us h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.contact-details h2,
+.contact-details h3 {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.contact-details p {
+    margin: 5px 0;
+    text-align: center;
+}
+
+.widget-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* White background with 10% opacity */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.time-widget {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.weather-widget {
+    display: flex;
+    align-items: center;
+}
+
+.weather-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+#weather {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
