@@ -36,6 +36,26 @@ def speak(cmdd):
     engine.say(cmdd)
     engine.runAndWait()
 
+import serial
+import time
+
+# Replace 'COM3' with the appropriate port for your Arduino
+SERIAL_PORT = 'COM3'
+BAUD_RATE = 9600
+
+def send_serial_command(command):
+    try:
+        with serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1) as ser:
+            time.sleep(2)  # Wait for the connection to establish
+            ser.write(command.encode())
+            print(f"Sent command: {command}")
+            time.sleep(0.1)  # Give some time for the Arduino to process
+            response = ser.readline().decode().strip()
+            print(f"Received response: {response}")
+            return response
+    except serial.SerialException as e:
+        print(f"Error: {e}")
+        return None
 
 def stop():
     winsound.Beep(1000, 100)
@@ -172,6 +192,8 @@ def greet(result, command):
         speak(random.choice(replies))
     elif "bye" in result.lower():
         replies = ["Bye!, see you", "Good bye!, I am always available for you", "Bye!, nice helping you", "Ok, see you"]
+        speak(random.choice(replies))
+        sys.exit(0)
 
 
 def work_bot(result, command):
@@ -179,7 +201,7 @@ def work_bot(result, command):
         speak("Let me see.")
         webbrowser.open(
             f"https://www.google.com/maps/place/"
-            f"{command.replace('where', '').replace('is', '').strip()}")
+            f"{command.lower().replace('where', '').replace('is', '').replace('do', '').replace('find', '').strip()}")
         time.sleep(2.5)
         pyautogui.click(pyautogui.center(pyautogui.locateOnScreen('wheresearch.png')))
         speak(f"There you go, {OWNER_NAME}")
@@ -197,12 +219,18 @@ def work_bot(result, command):
     elif "send email" in result.lower():
         firstname = command.replace("email", "").replace("throw", "").replace("to", "").replace("send", "").replace(
             "an", "").replace("a", "").strip()
+        print(firstname)
         # Load the data from the JSON file
         with open('emails.json', 'r') as file:
             contacts = json.load(file)
+        print(contacts)
         for contact in contacts:
-            if contact['first_name'].lower() == firstname.lower():
+            print(contact)
+            print('...............................')
+            print(contact['first_name'].lower().strip()==firstname.lower())
+            if contact['first_name'].lower().strip() == firstname.lower():
                 receiver_email = contact['email']
+                break
             else:
                 speak("Could not find the email, how else can I help you!")
                 return ''
@@ -241,7 +269,6 @@ def work_bot(result, command):
 
             # Disconnect from the server
             server.quit()
-            main()
         except Exception as e:
             speak(f'Failed to send email: {e}')
             main()
@@ -264,6 +291,10 @@ def work_bot(result, command):
         webbrowser.open(f"https://www.google.com/maps/place/{location}")
         time.sleep(2.5)
         speak(f"Here you go!")
+    elif 'lighton' in result.lower():
+        send_serial_command('1')
+    elif 'lightof' in result.lower():
+        send_serial_command('0')
 
 
 def check_conditions(result, command):

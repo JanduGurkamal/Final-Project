@@ -6,7 +6,13 @@
         "hello",
         "hi",
         "how is it going",
-        "whats up"
+        "whats up",
+        "hey",
+        "howdy",
+        "good day",
+        "hi there",
+        "hello there",
+        "hey there"
       ],
       "responses": [
         "greet, greeting"
@@ -17,7 +23,14 @@
       "patterns": [
         "How are you",
         "How are you doing today",
-        "How is your day?"
+        "How is your day?",
+        "How's it going?",
+        "How are things?",
+        "How are you feeling?",
+        "What's up?",
+        "How's everything?",
+        "How's your day going?",
+        "How have you been?"
       ],
       "responses": [
         "greet, ask how are you"
@@ -31,7 +44,11 @@
         "what your name",
         "what should i call you",
         "what i call you",
-        "what can i call you"
+        "what can i call you",
+        "do you have a name",
+        "what's your name",
+        "how should I address you",
+        "may I know your name"
       ],
       "responses": [
         "name asking, about"
@@ -45,7 +62,14 @@
         "Volume low",
         "volume high",
         "volume full",
-        "mute"
+        "mute",
+        "increase volume",
+        "decrease volume",
+        "turn up the volume",
+        "turn down the volume",
+        "set volume to max",
+        "set volume to minimum",
+        "lower the volume"
       ],
       "responses": [
         "machine use, Volume"
@@ -65,7 +89,12 @@
         "lock",
         "lock the pc",
         "lock this pc",
-        "lock this computer"
+        "lock this computer",
+        "turn off the computer",
+        "reboot the system",
+        "lock the system",
+        "power off",
+        "restart my computer"
       ],
       "responses": [
         "Machine work"
@@ -86,7 +115,12 @@
         "find me a restaurant",
         "find for me a bar",
         "search a bar for me",
-        "search a hotel for us"
+        "search a hotel for us",
+        "look up",
+        "what do you know about",
+        "search for",
+        "give me information about",
+        "find information on"
       ],
       "responses": [
         "work bot, search"
@@ -104,7 +138,13 @@
         "show me the todo list",
         "what is in todo",
         "remove from the todo",
-        "remove todo"
+        "remove todo",
+        "what's on my list",
+        "add this to my list",
+        "add a task",
+        "what tasks do I have",
+        "delete this from my list",
+        "remove a task from my list"
       ],
       "responses": [
         "todo"
@@ -122,7 +162,15 @@
         "run this",
         "open this",
         "open for me",
-        "run for me"
+        "run for me",
+        "start",
+        "launch",
+        "start chrome",
+        "launch the app",
+        "open the browser",
+        "open the application",
+        "launch this app",
+        "run the program"
       ],
       "responses": [
         "work bot, Run apps"
@@ -133,7 +181,16 @@
       "patterns": [
         "switch to",
         "switch window",
-        "switch from switch to"
+        "switch from switch to",
+        "change window",
+        "change application",
+        "change to",
+        "switch application",
+        "swap window",
+        "swap to",
+        "swap between",
+        "toggle window",
+        "toggle between"
       ],
       "responses": [
         "machine use, switch windows"
@@ -146,7 +203,16 @@
         "1*2",
         "1/2",
         "1^2",
-        "1+2*3/4"
+        "1+2*3/4",
+        "calculate",
+        "what is",
+        "how much is",
+        "what is the result of",
+        "can you calculate",
+        "compute",
+        "evaluate",
+        "find the result of",
+        "math calculation"
       ],
       "responses": [
         "work bot, calculate"
@@ -166,7 +232,13 @@
         "b bye",
         "go to sleep",
         "sleep now",
-        "thank you bye"
+        "thank you bye",
+        "later",
+        "see you later",
+        "talk to you soon",
+        "take care",
+        "farewell",
+        "bye for now"
       ],
       "responses": [
         "greet, bye"
@@ -180,7 +252,14 @@
         "what is the time in",
         "what is the time here",
         "how much time is it",
-        "It is how much time"
+        "It is how much time",
+        "current time",
+        "what time is it now",
+        "tell me the time",
+        "what's the time",
+        "can you tell the time",
+        "check the time",
+        "do you know the time"
       ],
       "responses": [
         "tell, Time"
@@ -192,7 +271,15 @@
         "tell a joke",
         "tell me a joke",
         "a joke please",
-        "joke please"
+        "joke please",
+        "make me laugh",
+        "do you know any jokes",
+        "say something funny",
+        "can you tell a joke",
+        "do you have a joke",
+        "give me a joke",
+        "joke",
+        "entertain me with a joke"
       ],
       "responses": [
         "tell, joke"
@@ -210,7 +297,13 @@
         "brighten the screen",
         "darken the screen",
         "make screen dark",
-        "make screen bright"
+        "make screen bright",
+        "increase brightness",
+        "decrease brightness",
+        "adjust brightness",
+        "change screen brightness",
+        "set brightness to maximum",
+        "set brightness to minimum"
       ],
       "responses": [
         "machine use, brightness"
@@ -223,7 +316,16 @@
         "do you know where",
         "do you know where is",
         "is where",
-        "where"
+        "where",
+        "locate",
+        "find",
+        "can you locate",
+        "can you find",
+        "tell me where",
+        "where can I find",
+        "where to find",
+        "show me the location of",
+        "where exactly is"
       ],
       "responses": [
         "work bot, location"
@@ -237,7 +339,16 @@
         "play",
         "play song",
         "song",
-        "youtube"
+        "youtube",
+        "can you play",
+        "play music",
+        "play video",
+        "put on",
+        "start playing",
+        "turn on",
+        "play this on youtube",
+        "play a video",
+        "play a song"
       ],
       "responses": [
         "work bot, play"
@@ -255,7 +366,13 @@
         "is the lappy plugged in?",
         "is laptop charging",
         "is laptop plugged in",
-        "is laptop on battery"
+        "is laptop on battery",
+        "check battery",
+        "how much battery is left",
+        "battery status",
+        "current battery level",
+        "is the battery low",
+        "is the battery full"
       ],
       "responses": [
         "machine use, battery"
@@ -268,7 +385,12 @@
         "what language were you programmed in",
         "what language were you made",
         "language you were created in",
-        "who created you"
+        "who created you",
+        "which programming language are you made in",
+        "in what language are you coded",
+        "what coding language was used to create you",
+        "which language was used to make you",
+        "what's your programming language"
       ],
       "responses": [
         "about ,language"
@@ -282,7 +404,12 @@
         "what made you",
         "how created you",
         "your inventor?",
-        "who is your inventor"
+        "who is your inventor",
+        "who is your creator",
+        "who developed you",
+        "who designed you",
+        "who is the person behind you",
+        "who built you"
       ],
       "responses": [
         "about, owner"
@@ -294,7 +421,14 @@
         "screenshot",
         "take a screenshot for me",
         "do me a screenshot",
-        "pluck a screenshot"
+        "pluck a screenshot",
+        "capture screen",
+        "capture a screenshot",
+        "take a snapshot",
+        "snap the screen",
+        "take a picture of the screen",
+        "grab a screenshot",
+        "screen capture"
       ],
       "responses": [
         "machine use, screenshot"
@@ -306,7 +440,14 @@
         "send an email to",
         "give an email to",
         "throw an email to",
-        "send mail"
+        "send mail",
+        "email",
+        "send an email",
+        "compose an email",
+        "draft an email",
+        "send a message to",
+        "email to",
+        "send electronic mail to"
       ],
       "responses": [
         "work bot, send email"
@@ -320,7 +461,13 @@
         "give some updates today",
         "what is going on in the world",
         "what are some headlines",
-        "what are some headlines today"
+        "what are some headlines today",
+        "news updates",
+        "any news",
+        "latest news",
+        "current news",
+        "what's new in the news",
+        "news for today"
       ],
       "responses": [
         "work bot, news"
@@ -334,7 +481,11 @@
         "i am this from now",
         "you should call me this now",
         "you should address me this now",
-        "address me as"
+        "address me as",
+        "refer to me as",
+        "call me by this name",
+        "use this name for me",
+        "use this to call me"
       ],
       "responses": [
         "bot modify, keep owner name"
@@ -348,7 +499,12 @@
         "in what languages can you talk",
         "which languages do you know",
         "you know which languages",
-        "can you speak multiple languages"
+        "can you speak multiple languages",
+        "are you multilingual",
+        "how many languages can you speak",
+        "do you speak other languages",
+        "what languages do you understand",
+        "can you understand different languages"
       ],
       "responses": [
         "about, language ability"
@@ -365,7 +521,14 @@
         "where is moga",
         "where is punjab",
         "this on globe",
-        "find me india on globe"
+        "find me india on globe",
+        "locate on map",
+        "find this place for me",
+        "map this location",
+        "show me where it is",
+        "where can I find this",
+        "how can I get to",
+        "where do I find"
       ],
       "responses": [
         "work bot, location"
@@ -380,14 +543,56 @@
         "listen in japanese now",
         "listen in spanish now",
         "respond in french now",
-        "respond in hindi"
+        "respond in hindi",
+        "change to spanish",
+        "understand me in german",
+        "talk to me in italian",
+        "switch to chinese",
+        "switch language to french",
+        "change language to japanese",
+        "communicate in spanish"
       ],
       "responses": [
         "bot modify, language change"
       ],
       "tag": "change language"
+    },
+    {
+      "patterns": [
+        "bye",
+        "good bye",
+        "bye bye",
+        "see you tomorrow",
+        "see you later bye",
+        "tata bye bye",
+        "stop",
+        "I am going",
+        "i am going now",
+        "that all for now",
+        "that is all for today"
+      ],
+      "responses": [
+        "greet, bye"
+      ],
+      "tag": "Saying bye"
+    },
+    {
+      "patterns": [
+        "switch on the light", "switch the light on", "switch light the on", "switch on light the"
+      ],
+      "responses": [
+        "work bot, lighton"
+      ],
+      "tag": "working on light on"
+    },
+    {
+      "patterns": [
+        "turn light off", "turn of light", "off turn light"
+      ],
+      "responses": [
+        "work bot, lightof"
+      ],
+      "tag": "working on light off"
     }
   ]
 }
-
-

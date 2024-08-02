@@ -1,24 +1,19 @@
 {
     "users": [
         {
-            "connectionID": "812682",
-            "password": "password1",
-            "username": "Mateo Ysla"
-        },
-        {
             "connectionID": "66442",
             "password": "password1",
             "username": "813958"
         },
         {
-            "connectionID": "813958",
-            "password": "1234",
-            "username": "Gurkamal Jandu"
-        },
-        {
             "connectionID": "80217",
             "password": "12345",
             "username": "813959"
+        },
+        {
+            "connectionID": "813958",
+            "password": "1234",
+            "username": "Gurkamal Jandu"
         }
     ]
 }
