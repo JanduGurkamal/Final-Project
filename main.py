@@ -303,6 +303,7 @@ def retrieve_news():
 
 
 def main():
+    while True:    
         try:
             command = source()
             print(command)
@@ -311,7 +312,8 @@ def main():
             check_conditions(result, command)
             if "bye" in result.lower():
                 return ""
-            command = None
         except sp.UnknownValueError:
             speak("I couldn't catch that")
 
+
+main()

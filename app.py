@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 import json
+
 import random
-import main
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
@@ -117,8 +117,10 @@ def delete_user():
 @app.route('/run_virtual_assistant', methods=['POST'])
 def run_virtual_assistant():
     try:
-        main.main()  # Assuming main.py has a function named main
-        return jsonify({'status': 'success'}), 200
+        print('i ran')
+        import main
+        main.main()
+        return jsonify({'status': 'success', 'message': 'The task has been completed.'}), 200
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500
 

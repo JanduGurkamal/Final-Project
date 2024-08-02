@@ -1,5 +1,5 @@
 document.getElementById('mic').addEventListener('click', function () {
-    let userInput = prompt("Speak to the virtual assistant:");
+    const userInput = ''
 
     fetch('/run_virtual_assistant', {
         method: 'POST',
