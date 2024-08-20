@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Virtual Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <nav class="app-nav">
+                <a href="{{ url_for('main_page') }}"><img src="{{ url_for('static', filename='images/home.png') }}"
+                        alt="Home" class="nav-icon"></a>
+                <a href="{{ url_for('login') }}"><img src="{{ url_for('static', filename='images/logout.png') }}"
+                        alt="Logout" class="nav-icon"></a>
+            </nav>
+        </header>
+        <main class="app-main">
+            <div class="flash-container">
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+            </div>
+            <div class="services-form">
+                <h1>Request a Custom Service</h1>
+                <form action="{{ url_for('submit_service_request') }}" method="post">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="connectionID">Connection ID:</label>
+                    <input type="text" id="connectionID" name="connectionID" required>
+
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+
+                    <label for="rating">Rating:</label>
+                    <div class="rating">
+                        <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 stars">5
+                            </label>
+                        <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">4
+                            </label>
+                        <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">3
+                            </label>
+                        <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">2
+                            </label>
+                        <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">1
+                            </label>
+                    </div>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="services-info">
+                <h2>Our Services</h2>
+                <div class="service-cards">
+                    <div class="service-card" onclick="requestService('Virtualization')">Virtualization</div>
+                    <div class="service-card" onclick="requestService('Automation')">Automation</div>
+                    <div class="service-card" onclick="requestService('Auto Database Management')">Auto Database
+                        Management</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        function requestService(service) {
+            fetch("{{ url_for('submit_service_card_request') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ service: service, username: "{{ username }}" })
+            }).then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    window.location.href = "{{ url_for('main_page') }}";
+                });
+        }
+
+        // Hide flash messages after 5 seconds
+        setTimeout(function () {
+            var flashMessages = document.querySelector('.flash-messages');
+            if (flashMessages) {
+                flashMessages.style.display = 'none';
+            }
+        }, 5000);
+    </script>
+</body>
+
+</html>

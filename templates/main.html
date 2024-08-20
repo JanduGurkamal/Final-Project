@@ -1,127 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Main Page - Virtual Assistant</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+
+  <body>
     <div class="flash-container">
-        {% with messages = get_flashed_messages(with_categories=True) %}
-            {% if messages %}
-                <div class="flash-messages">
-                    {% for category, message in messages %}
-                        <div class="flash-message {{ category }}">{{ message }}</div>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
+      {% with messages = get_flashed_messages(with_categories=True) %} {% if
+      messages %}
+      <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="flash-message {{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+      {% endif %} {% endwith %}
     </div>
     <div class="app-container">
-        <header class="app-header">
-            <div class="profile">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="User Profile" id="userProfile">
-                <span class="username">{{ username }}</span>
-                <button class="dropbtn" onclick="toggleDropdown()">▼</button>
-                <div class="dropdown" id="profileDropdown">
-                    <a href="{{ url_for('add_user_page') }}">
-                        <img src="{{ url_for('static', filename='images/add_user_icon.png') }}" alt="Add User" class="icon">
-                        Add User
-                    </a>
-                    <form action="{{ url_for('delete_user') }}" method="post" class="delete-form">
-                        <input type="hidden" name="connectionID" value="{{ connectionID }}">
-                        <button type="submit" class="delete-btn">
-                            <img src="{{ url_for('static', filename='images/delete_user_icon.png') }}" alt="Delete Account" class="icon">
-                            Delete Account
-                        </button>
-                    </form>
-                </div>
+      <header class="app-header">
+        <div class="profile">
+          <img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="User Profile"
+            id="userProfile"
+          />
+          <span class="username">{{ username }}</span>
+          <button class="dropbtn" onclick="toggleDropdown()">▼</button>
+          <div class="dropdown" id="profileDropdown">
+            <a href="{{ url_for('add_user_page') }}">
+              <img
+                src="{{ url_for('static', filename='images/add_user_icon.png') }}"
+                alt="Add User"
+                class="icon"
+              />
+              Add User
+            </a>
+            <form
+              action="{{ url_for('delete_user') }}"
+              method="post"
+              class="delete-form"
+            >
+              <input
+                type="hidden"
+                name="connectionID"
+                value="{{ connectionID }}"
+              />
+              <button type="submit" class="delete-btn">
+                <img
+                  src="{{ url_for('static', filename='images/delete_user_icon.png') }}"
+                  alt="Delete Account"
+                  class="icon"
+                />
+                Delete User
+              </button>
+            </form>
+          </div>
+        </div>
+        <nav class="app-nav">
+          <a
+            href="{{ url_for('settings', username=username, connectionID=connectionID) }}"
+            id="settings"
+            ><img
+              src="{{ url_for('static', filename='images/settings.png') }}"
+              alt="Settings"
+              class="nav-icon"
+          /></a>
+          <a href="{{ url_for('login') }}" id="logout"
+            ><img
+              src="{{ url_for('static', filename='images/logout.png') }}"
+              alt="Logout"
+              class="nav-icon"
+          /></a>
+        </nav>
+      </header>
+      <main class="app-main">
+        <div class="desktop-layout">
+          <div class="widget-container">
+            <div class="time-widget">
+              <span id="time"></span>
             </div>
-            <nav class="app-nav">
-                <a href="{{ url_for('settings', username=username, connectionID=connectionID) }}" id="settings"><img src="{{ url_for('static', filename='images/settings.png') }}" alt="Settings" class="nav-icon"></a>
-                <a href="{{ url_for('login') }}" id="logout"><img src="{{ url_for('static', filename='images/logout.png') }}" alt="Logout" class="nav-icon"></a>
-            </nav>
-        </header>
-        <main class="app-main">
-            <div class="desktop-layout">
-                <div class="widget-container">
-                    <div class="time-widget">
-                        <span id="time"></span>
-                    </div>
-                    <div class="weather-widget">
-                        <img src="{{ url_for('static', filename='images/weather.png') }}" alt="Weather Icon" class="weather-icon">
-                        <span id="weather">--°C</span>
-                    </div>
-                </div>
+            <div class="weather-widget">
+              <img
+                src="{{ url_for('static', filename='images/weather.png') }}"
+                alt="Weather Icon"
+                class="weather-icon"
+              />
+              <span id="weather">--°C</span>
             </div>
-            <div class="actions">
-                <div class="action-item">
-                    <button id="contact" class="action-button">
-                        <img src="{{ url_for('static', filename='images/contact.png') }}" alt="Contact" class="action-icon">
-                        <span>Contact</span>
-                    </button>
-                </div>
-                <div class="divider"></div>
-                <div class="action-item">
-                    <button id="mic" class="action-button">
-                        <img src="{{ url_for('static', filename='images/mic.png') }}" alt="Mic" class="action-icon" style="width: 70px; height: 70px;">
-                        <span>Speak</span>
-                    </button>
-                </div>
-                <div class="divider"></div>
-                <div class="action-item">
-                    <button id="service" class="action-button">
-                        <img src="{{ url_for('static', filename='images/service.png') }}" alt="Service" class="action-icon">
-                        <span>Service</span>
-                    </button>
-                </div>
-            </div>
-        </main>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="action-item">
+            <button id="contact" class="action-button">
+              <a href="{{url_for('contact_us')}}">
+                <img
+                  src="{{ url_for('static', filename='images/contact.png') }}"
+                  alt="Contact"
+                  class="action-icon"
+                />
+              </a>
+              <span>Contact</span>
+            </button>
+          </div>
+          <div class="divider"></div>
+          <div class="action-item">
+            <button id="mic" class="action-button">
+              <img
+                src="{{ url_for('static', filename='images/mic.png') }}"
+                alt="Mic"
+                class="action-icon"
+                style="width: 70px; height: 70px"
+              />
+              <span>Speak</span>
+            </button>
+          </div>
+          <div class="divider"></div>
+          <div class="action-item">
+            <button id="service" class="action-button">
+              <a href="{{url_for('services_page')}}">
+                <img
+                  src="{{ url_for('static', filename='images/service.png') }}"
+                  alt="Service"
+                  class="action-icon"
+                />
+              </a>
+              <span>Service</span>
+            </button>
+          </div>
+        </div>
+      </main>
     </div>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script>
-        // Time Widget
-        function updateTime() {
-            const timeElement = document.getElementById('time');
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            timeElement.textContent = `${hours}:${minutes}:${seconds}`;
-        }
-        setInterval(updateTime, 1000);
-        updateTime();
+      // Time Widget
+      function updateTime() {
+        const timeElement = document.getElementById("time");
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+        timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+      }
+      setInterval(updateTime, 1000);
+      updateTime();
 
-        // Weather Widget (placeholder function, replace with actual API call)
-        function updateWeather() {
-            const weatherElement = document.getElementById('weather');
-            // Dummy temperature value, replace with actual API call data
-            const temperature = 22;
-            weatherElement.textContent = `${temperature}°C`;
-        }
-        updateWeather();
+      // Weather Widget (placeholder function, replace with actual API call)
+      function updateWeather() {
+        const weatherElement = document.getElementById("weather");
+        // Dummy temperature value, replace with actual API call data
+        const temperature = 22;
+        weatherElement.textContent = `${temperature}°C`;
+      }
+      updateWeather();
 
-        // Toggle dropdown visibility
-        function toggleDropdown() {
-            const dropdown = document.getElementById('profileDropdown');
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        }
+      // Toggle dropdown visibility
+      function toggleDropdown() {
+        const dropdown = document.getElementById("profileDropdown");
+        dropdown.style.display =
+          dropdown.style.display === "block" ? "none" : "block";
+      }
 
-        // Close dropdown if clicked outside
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                const dropdowns = document.getElementsByClassName('dropdown');
-                for (let i = 0; i < dropdowns.length; i++) {
-                    const openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === 'block') {
-                        openDropdown.style.display = 'none';
-                    }
-                }
+      // Close dropdown if clicked outside
+      window.onclick = function (event) {
+        if (!event.target.matches(".dropbtn")) {
+          const dropdowns = document.getElementsByClassName("dropdown");
+          for (let i = 0; i < dropdowns.length; i++) {
+            const openDropdown = dropdowns[i];
+            if (openDropdown.style.display === "block") {
+              openDropdown.style.display = "none";
             }
+          }
         }
+      };
     </script>
-</body>
+  </body>
 </html>

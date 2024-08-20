@@ -24,6 +24,10 @@ def generate_connection_id():
 def login():
     return render_template('login.html')
 
+@app.route('/services')
+def services_page():
+    return render_template('services.html')
+
 @app.route('/verify_user', methods=['POST'])
 def verify_user():
     connection_id = request.form['connectionID']
@@ -123,6 +127,33 @@ def run_virtual_assistant():
         return jsonify({'status': 'success', 'message': 'The task has been completed.'}), 200
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)}), 500
+
+
+@app.route('/submit_service_request', methods=['POST'])
+def submit_service_request():
+    email = request.form['email']
+    name = request.form['name']
+    connection_id = request.form['connectionID']
+    description = request.form['description']
+    # Here you can process the service request, e.g., save it to a database
+    flash(f'Thank you {name}, your request has been submitted.', 'success')
+    return redirect(url_for('services_page'))
+
+@app.route('/submit_rating', methods=['POST'])
+def submit_rating():
+    rating = request.form['rating']
+    # Process the rating as needed
+    flash('Thank you for your rating!', 'success')
+    return redirect(url_for('main_page'))
+
+@app.route('/submit_service_card_request', methods=['POST'])
+def submit_service_card_request():
+    data = request.get_json()
+    service = data['service']
+    username = data['username']
+    # Process the service card request as needed
+    flash(f'Thank you {username}, your request for {service} has been submitted. A team member will contact you as soon as possible.', 'success')
+    return jsonify({'status': 'success'})
 
 if __name__ == '__main__':
     app.run(debug=True)

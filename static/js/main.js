@@ -16,3 +16,5 @@ document.getElementById('mic').addEventListener('click', function () {
             console.error('Error:', error);
         });
 });
+
+
